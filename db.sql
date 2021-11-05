@@ -29,8 +29,8 @@ CREATE TABLE `Transaction` (
 ALTER TABLE `Transaction` ADD CONSTRAINT `Transaction_fk0` FOREIGN KEY (`from`) REFERENCES `Account`(`address`);
 
 CREATE UNIQUE INDEX idx_hash ON Transaction (`hash`);
-CREATE UNIQUE INDEX idx_from ON Transaction (`from`);
-CREATE UNIQUE INDEX idx_to ON Transaction (`to`);
+CREATE INDEX idx_from ON Transaction (`from`);
+CREATE INDEX idx_to ON Transaction (`to`);
 CREATE UNIQUE INDEX idx_address ON Account (`address`);
 
 INSERT INTO Account (address, balance)
